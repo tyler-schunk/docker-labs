@@ -55,6 +55,6 @@ fi
 
 ### Install custom tools ###
 echo -e "${RED}### Install custom tools ###
-gobsuter | burpsuite${NC}";
+gobsuter | burpsuite | seclists | hydra${NC}";
 sleep 5s;
-apt install -y gobuster burpsuite;
+apt install -y gobuster burpsuite seclists hydra;
