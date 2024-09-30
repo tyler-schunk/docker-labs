@@ -1,0 +1,17 @@
+services:
+  core-kali-rolling:
+    image: kasmweb/core-kali-rolling:1.16.0
+    container_name: core-kali-rolling
+    ports:
+      - 6901:6901
+    environment:
+
+      VNC_PW: password
+    shm_size: '512m'
+    user: root
+      
+  juice-shop:
+    image: bkimminich/juice-shop
+    container_name: juice-shop
+    ports:
+      - 3000:3000
