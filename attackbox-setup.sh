@@ -24,7 +24,7 @@ echo -e "${RED}### Install Firefox & create desktop icon ###${NC}";
 sleep 5s;
 sudo install -d -m 0755 /etc/apt/keyrings;
 wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null;
-echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt;/sources.list.d/mozilla.list > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
 sudo apt update && sudo apt install firefox -y;
 
 # Find the Firefox executable path
@@ -45,13 +45,13 @@ chmod +x ~/Desktop/firefox.desktop
 #######################################################
 
 ### Install Kali metapackages | web ###
-echo -e "${RED}### Install Kali metapackages | web ###${NC}";
-sleep 5s;
-apt install kali-tools-web -y;
+# echo -e "${RED}### Install Kali metapackages | web ###${NC}";
+# sleep 5s;
+# apt install kali-tools-web -y;
 
 
 ### Install custom tools ###
 echo -e "${RED}### Install custom tools ###
-gobsuter${NC}";
+gobsuter | burpsuite${NC}";
 sleep 5s;
-apt install gobuster;
+apt install gobuster burpsuite;
