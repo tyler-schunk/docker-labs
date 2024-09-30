@@ -5,7 +5,6 @@ services:
     ports:
       - 6901:6901
     environment:
-
       VNC_PW: password
     shm_size: '512m'
     user: root
