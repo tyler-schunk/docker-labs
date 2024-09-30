@@ -20,28 +20,31 @@ apt update && apt upgrade -y;
 #######################################################
 
 ### Install Firefox | create desktop shortcut ###
-echo -e "${RED}### Install Firefox & create desktop icon ###${NC}";
-sleep 5s;
-sudo install -d -m 0755 /etc/apt/keyrings;
-wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null;
-echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
-sudo apt update && sudo apt install firefox -y;
-
-# Find the Firefox executable path
-firefox_path=$(which firefox)
-
-# Create the desktop file
-echo "[Desktop Entry]
-Type=Application
-Name=Firefox
-Exec=$firefox_path %U
-Icon=firefox
-Terminal=false
-Categories=Application;Internet;" > ~/Desktop/firefox.desktop;
-
-# Make the file executable
-chmod +x ~/Desktop/firefox.desktop
-
+if ! command -v firefox &> /dev/null; then
+  echo -e "${RED}### Install Firefox & create desktop icon ###${NC}";
+  sleep 5s;
+  sudo install -d -m 0755 /etc/apt/keyrings;
+  wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null;
+  echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+  sudo apt update && sudo apt install firefox -y;
+  
+  # Find the Firefox executable path
+  firefox_path=$(which firefox)
+  
+  # Create the desktop file
+  echo "[Desktop Entry]
+  Type=Application
+  Name=Firefox
+  Exec=$firefox_path %U
+  Icon=firefox
+  Terminal=false
+  Categories=Application;Internet;" > ~/Desktop/firefox.desktop;
+  
+  # Make the file executable
+  chmod +x ~/Desktop/firefox.desktop
+else
+  echo "Firefox is already installed"
+fi
 #######################################################
 
 ### Install Kali metapackages | web ###
