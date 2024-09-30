@@ -54,4 +54,4 @@ chmod +x ~/Desktop/firefox.desktop
 echo -e "${RED}### Install custom tools ###
 gobsuter | burpsuite${NC}";
 sleep 5s;
-apt install gobuster burpsuite;
+apt install -y gobuster burpsuite;
