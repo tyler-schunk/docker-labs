@@ -11,8 +11,8 @@
 5. Services should be accessable using the following links:
     1. OWASP Juice Shop: http://localhost:3000/
     2. KASM Kali: https://localhost:6901/  - I've seen issues accessing via Firefox so make sure to try other browsers. Confirmed to be working on Chrome.
-            1. user: kasm_user
-            2. pass: password
+        1. user: kasm_user
+        2. pass: password
 6. After loggin into KASM Kali, run the following commands in the terminal.
     1. `wget https://raw.githubusercontent.com/tyler-schunk/docker-labs/refs/heads/main/attackbox-setup.sh`
     2. `chmod +x attackbox-setup.sh`
